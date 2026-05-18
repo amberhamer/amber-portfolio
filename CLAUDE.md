@@ -10,15 +10,15 @@ Static HTML/CSS portfolio site for Amber Hamersfeld. Plain HTML + CSS only, no b
 
 ## Structure
 
-- `index.html` — home with CSS slideshow + 5-tile project grid
+- `index.html` — home with CSS slideshow + project grid
 - `about.html` — about page (editable text block inside `<div class="about-page__content">` with `white-space: pre-wrap`)
 - `contact.html` — Formspree contact form + Instagram DM link
-- Per-project pages: `alchemy.html`, `bloomed.html`, `brumbys.html`, `mrs_matcha.html`, `natures_navigator.html`
+- Per-project pages: `alchemy.html`, `bloomed.html`, `brumbys.html`, `mrs_matcha.html`, `bloom_cosmetics.html`, `blitz_bar.html`, `still_life.html`
 - `styles.css` — shared styles
 - `fonts/` — local Caslon + Sackers Gothic
 - `hero/` — per-project tile thumbnails (4:3 currently)
 - `slideshow/` — homepage hero slideshow images (managed by update-slideshow.py)
-- Per-project image folders: `alchemy/`, `bloomed/`, `brumbys/`, `mrs_matcha/`, `natures_navigator/`
+- Per-project image folders: `alchemy/`, `bloomed/`, `brumbys/`, `mrs_matcha/`, `bloom_cosmetics/`, `blitz_bar/`, `still_life/`
 
 ## Slideshow
 
