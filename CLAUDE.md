@@ -6,7 +6,7 @@ Static HTML/CSS portfolio site for Amber Hamersfeld. Plain HTML + CSS only, no b
 
 - Email: amber@hamersfeld.com
 - Formspree endpoint: https://formspree.io/f/maqkyjlz (used by the contact form on contact.html)
-- Instagram handle: not yet provided. Placeholder `your_instagram_handle` is in contact.html and the nav `Instagram` link in every page is still `href="#"`. Update both once known.
+- Instagram: `@by.amber.designs` — profile https://www.instagram.com/by.amber.designs/ (nav `Instagram` link on every page) and DM deep link https://ig.me/m/by.amber.designs (the `Or DM on Instagram` link on contact.html).
 
 ## Structure
 
