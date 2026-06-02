@@ -38,7 +38,6 @@ body {
   background: #fff;
 }
 
-.slideshow__tagline,
 .project-intro__title,
 .project-next__title,
 .about-page__title,
@@ -181,6 +180,18 @@ button {
   cursor: pointer;
 }
 
+@media (pointer: fine) {
+  html,
+  body {
+    cursor: url("mrs_matcha/matcha-whisk-cursor.png") 18 1, auto;
+  }
+
+  a,
+  button {
+    cursor: url("mrs_matcha/matcha-whisk-cursor.png") 18 1, pointer;
+  }
+}
+
 .site-nav {
   position: fixed;
   top: 0;
@@ -306,21 +317,6 @@ button {
   z-index: 1;
 }
 
-.slideshow__tagline {
-  position: absolute;
-  left: 28px;
-  bottom: 28px;
-  right: 28px;
-  max-width: 720px;
-  font-size: 40px;
-  line-height: 1.2;
-  font-weight: 400;
-  color: #fff;
-  letter-spacing: 0;
-  text-transform: none;
-  z-index: 2;
-}
-
 .portfolio {
   padding: 40px 28px 80px;
 }
@@ -338,6 +334,7 @@ button {
 
 .tile__media {
   display: block;
+  position: relative;
   width: 100%;
   background: #ececec;
   overflow: hidden;
@@ -350,8 +347,34 @@ button {
   transition: transform 0.6s ease;
 }
 
+/* Secondary image, revealed on hover. It sits absolutely over the
+   primary and crossfades in. Both layers fill the same 4:3 tile box
+   via object-fit: cover, so primary and secondary always match in
+   ratio and framing regardless of the source image's dimensions. */
+.tile__img--secondary {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.55s ease, transform 0.6s ease;
+}
+
 .tile:hover .tile__media img {
   transform: scale(1.02);
+}
+
+.tile:hover .tile__img--secondary {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile__media img,
+  .tile__img--secondary {
+    transition: none;
+  }
+
+  .tile:hover .tile__media img {
+    transform: none;
+  }
 }
 
 .tile--portrait .tile__media {
@@ -635,10 +658,6 @@ button {
   .project-intro__title {
     font-size: 34px;
   }
-
-  .slideshow__tagline {
-    font-size: 28px;
-  }
 }
 
 @media (max-width: 640px) {
@@ -673,13 +692,6 @@ button {
   .slideshow {
     height: 70vh;
     min-height: 420px;
-  }
-
-  .slideshow__tagline {
-    left: 18px;
-    right: 18px;
-    bottom: 22px;
-    font-size: 22px;
   }
 
   .portfolio {
