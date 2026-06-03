@@ -48,9 +48,30 @@ body {
 }
 
 .about-page {
-  max-width: 920px;
+  max-width: 1040px;
   margin: 0 auto;
   padding: 160px 28px 120px;
+  display: grid;
+  grid-template-columns: minmax(0, 360px) 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.about-page__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 760px) {
+  .about-page {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .about-page__media {
+    max-width: 360px;
+  }
 }
 
 .about-page__title {
@@ -314,6 +335,27 @@ button {
   object-fit: cover;
 }
 
+/* Secondary image, revealed on hover. It sits absolutely over the
+   primary and crossfades in. Both layers fill the same 4:3 tile box
+   via object-fit: cover, so primary and secondary always match in
+   ratio and framing regardless of the source image's dimensions. */
+.tile__img--secondary {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.55s ease;
+}
+
+.tile:hover .tile__img--secondary {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile__img--secondary {
+    transition: none;
+  }
+}
+
 .tile--portrait .tile__media {
   aspect-ratio: 4 / 5;
 }
@@ -341,6 +383,11 @@ button {
 .tile__title {
   font-size: 18px;
   line-height: 1.2;
+}
+
+.tile:hover .tile__title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .tile__meta {
